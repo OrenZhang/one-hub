@@ -49,8 +49,6 @@ func GinzapWithConfig() gin.HandlerFunc {
 			for _, e := range c.Errors.Errors() {
 				logger.Logger.Error(e, fields...)
 			}
-		} else {
-			logger.Logger.Info("GIN request", fields...)
 		}
 		metrics.RecordHttp(c, latency)
 	}
