@@ -69,7 +69,6 @@ const Header = ({ handleLeftDrawerToggle }) => {
 
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ flexGrow: 1 }} />
-      <NoticeButton />
       <ThemeButton />
       <I18nButton />
       <ProfileSection />

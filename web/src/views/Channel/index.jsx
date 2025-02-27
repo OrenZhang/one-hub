@@ -75,19 +75,10 @@ const ChannelTab = () => {
                   icon={<Icon icon="solar:menu-dots-bold-duotone" />}
                   iconPosition="start"
                 />
-                <Tab
-                  label={t('channel_index.channelTags')}
-                  {...a11yProps(1)}
-                  icon={<Icon icon="solar:tag-horizontal-bold-duotone" />}
-                  iconPosition="start"
-                />
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
               <ChannelList />
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-              <ChannelTag />
             </CustomTabPanel>
           </Box>
         </AdminContainer>

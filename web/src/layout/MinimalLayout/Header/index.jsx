@@ -68,7 +68,6 @@ const Header = () => {
       <Stack spacing={2} direction="row" justifyContent="center" alignItems="center">
         {isMobile ? (
           <>
-            <NoticeButton />
             <ThemeButton />
             <I18nButton />
             <IconButton onClick={handleOpenMenu}>
@@ -80,20 +79,10 @@ const Header = () => {
             <Button component={Link} variant="text" to="/" color={pathname === '/' ? 'primary' : 'inherit'}>
               {t('menu.home')}
             </Button>
-            {account.user && (
-              <Button component={Link} variant="text" to="/playground" color={pathname === '/playground' ? 'primary' : 'inherit'}>
-                {t('playground')}
-              </Button>
-            )}
             <Button component={Link} variant="text" to="/price" color={pathname === '/price' ? 'primary' : 'inherit'}>
               {t('price')}
             </Button>
-            <Button component={Link} variant="text" to="/about" color={pathname === '/about' ? 'primary' : 'inherit'}>
-              {t('menu.about')}
-            </Button>
-            <NoticeButton />
             <ThemeButton />
-            <I18nButton />
             {account.user ? (
               <>
                 <Button component={Link} variant="contained" to="/panel" color="primary">
