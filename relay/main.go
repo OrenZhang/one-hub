@@ -83,6 +83,8 @@ func RelayHandler(relay RelayBaseInterface) (err *types.OpenAIErrorWithStatusCod
 			"no_price",
 			http.StatusInternalServerError,
 		)
+		done = true
+		return
 	}
 
 	promptTokens, tonkeErr := relay.getPromptTokens()
