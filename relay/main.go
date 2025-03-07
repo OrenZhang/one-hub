@@ -75,6 +75,16 @@ func Relay(c *gin.Context) {
 }
 
 func RelayHandler(relay RelayBaseInterface) (err *types.OpenAIErrorWithStatusCode, done bool) {
+	// check model ratio
+	price := model.PricingInstance.GetPrice(relay.getModelName())
+	if price.ChannelType == config.ChannelTypeUnknown && price.Input == model.DefaultPrice && price.Output == model.DefaultPrice {
+		err = common.ErrorWrapperLocal(
+			fmt.Errorf("model %s price unset", relay.getModelName()),
+			"no_price",
+			http.StatusInternalServerError,
+		)
+	}
+
 	promptTokens, tonkeErr := relay.getPromptTokens()
 	if tonkeErr != nil {
 		err = common.ErrorWrapperLocal(tonkeErr, "token_error", http.StatusBadRequest)
